@@ -4,7 +4,7 @@ import javax.swing.*;
 
 public class TicTacToe {
     int boardWidth = 600;
-    int boardHeight = 650; // 50px for the text panel on top
+    int boardHeight = 650; 
 
     JFrame frame = new JFrame("Tic-Tac-Toe");
     JLabel textLabel = new JLabel();
@@ -83,8 +83,6 @@ public class TicTacToe {
                 return;
             }
         }
-
-        // Vertical
         for (int c = 0; c < 3; c++) {
             if (board[0][c].getText().isEmpty()) continue;
             if (board[0][c].getText().equals(board[1][c].getText()) &&
@@ -93,8 +91,6 @@ public class TicTacToe {
                 return;
             }
         }
-
-        // Diagonal
         if (!board[0][0].getText().isEmpty() &&
                 board[0][0].getText().equals(board[1][1].getText()) &&
                 board[1][1].getText().equals(board[2][2].getText())) {
@@ -137,7 +133,6 @@ public class TicTacToe {
     }
 
     void computerMove() {
-        // Implement basic AI for computer move
         int[] move = findBestMove();
         if (move != null) {
             JButton tile = board[move[0]][move[1]];
@@ -152,7 +147,6 @@ public class TicTacToe {
     }
 
     int evaluate() {
-        // Evaluate the current board state
         for (int r = 0; r < 3; r++) {
             if (!board[r][0].getText().isEmpty() &&
                     board[r][0].getText().equals(board[r][1].getText()) &&
@@ -189,7 +183,6 @@ public class TicTacToe {
     }
 
     boolean isMovesLeft() {
-        // Check if there are any empty tiles left
         for (int r = 0; r < 3; r++) {
             for (int c = 0; c < 3; c++) {
                 if (board[r][c].getText().isEmpty()) return true;
