@@ -50,7 +50,7 @@ public class TicTacToe {
 
                 tile.setBackground(Color.darkGray);
                 tile.setForeground(Color.white);
-                tile.setFont(new Font("Arial", Font.BOLD, 60)); // Increased font size
+                tile.setFont(new Font("Arial", Font.BOLD, 60));
                 tile.setFocusable(false);
 
                 tile.addActionListener(new ActionListener() {
@@ -74,7 +74,6 @@ public class TicTacToe {
     }
 
     void checkWinner() {
-        // Horizontal
         for (int r = 0; r < 3; r++) {
             if (board[r][0].getText().isEmpty()) continue;
             if (board[r][0].getText().equals(board[r][1].getText()) &&
