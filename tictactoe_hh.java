@@ -5,7 +5,7 @@ import javax.swing.*;
 
 public class TicTacToeGame {
     int boardWidth = 600;
-    int boardHeight = 650; // 50px for the text panel on top
+    int boardHeight = 650;
 
     JFrame frame = new JFrame("Tic-Tac-Toe");
     JLabel textLabel = new JLabel();
@@ -51,7 +51,7 @@ public class TicTacToeGame {
 
                 tile.setBackground(Color.darkGray);
                 tile.setForeground(Color.white);
-                tile.setFont(new Font("Arial", Font.BOLD, 60)); // Increased font size
+                tile.setFont(new Font("Arial", Font.BOLD, 60));
                 tile.setFocusable(false);
 
                 tile.addActionListener(new ActionListener() {
@@ -74,7 +74,6 @@ public class TicTacToeGame {
     }
 
     void checkWinner() {
-        // Horizontal
         for (int r = 0; r < 3; r++) {
             if (board[r][0].getText() == "") continue;
             if (board[r][0].getText() == board[r][1].getText() &&
@@ -86,8 +85,6 @@ public class TicTacToeGame {
                 return;
             }
         }
-
-        // Vertical
         for (int c = 0; c < 3; c++) {
             if (board[0][c].getText() == "") continue;
             if (board[0][c].getText() == board[1][c].getText() &&
@@ -99,8 +96,6 @@ public class TicTacToeGame {
                 return;
             }
         }
-
-        // Diagonal
         if (board[0][0].getText() == board[1][1].getText() &&
                 board[1][1].getText() == board[2][2].getText() &&
                 board[0][0].getText() != "") {
@@ -110,8 +105,6 @@ public class TicTacToeGame {
             gameOver = true;
             return;
         }
-
-        // Anti-diagonal
         if (board[0][2].getText() == board[1][1].getText() &&
                 board[1][1].getText() == board[2][0].getText() &&
                 board[0][2].getText() != "") {
